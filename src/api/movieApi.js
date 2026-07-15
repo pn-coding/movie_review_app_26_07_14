@@ -4,7 +4,7 @@ const options = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization: `Bearer `,
+    Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
   },
 };
 
@@ -16,11 +16,12 @@ const options = {
 const fetchMovie = async (endpoint) => {
   const url = baseUrl + endpoint + "?language=ko-kr&page=1";
 
-  const response = await fetch(url, options)
-    .then((res) => res.json())
-    .catch((err) => console.error(err));
+  const response = await fetch(url, options).then((res) => res.json());
 
   return { response };
 };
 
 export const getNowPlaying = () => fetchMovie("movie/now_playing");
+export const getPopular = () => fetchMovie("movie/popular");
+export const getTopRated = () => fetchMovie("movie/top_rated");
+export const getUpcoming = () => fetchMovie("movie/upcoming");
