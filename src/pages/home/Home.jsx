@@ -5,6 +5,7 @@ import {
   getTopRated,
   getUpcoming,
 } from "../../api/movieApi";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [movieData, setMovieData] = useState({});
@@ -31,9 +32,41 @@ export default function Home() {
     })();
   }, []);
 
-  console.log(movieData);
+  console.log(movieData?.nowPlaying?.response?.results[0]);
 
-  return <div>home</div>;
+  return (
+    <div className="min-h-screen">
+      <section
+        style={{
+          background: `#808080 url(https://image.tmdb.org/t/p/original${movieData?.nowPlaying?.response?.results[0].backdrop_path}) no-repeat center / cover`,
+        }}
+        className="h-[80vh] px-[20px] lg:px-[80px] xl:px-[200px] relative"
+      >
+        <div
+          className="absolute bottom-[100px] 
+        left-[20px] lg:left-[80px] xl:left-[200px]"
+        >
+          <h3 className="text-[30px] lg:text-[50px] xl:text-[70px] font-semibold">
+            {movieData?.nowPlaying?.response?.results[0].title}
+          </h3>
+          <p className="text-[14px] xl:text-[18px] opacity-70 max-w-[800px] mt-4 mb-16">
+            {movieData?.nowPlaying?.response?.results[0].overview.slice(
+              0,
+              100,
+            ) + "..."}
+          </p>
+
+          <Link
+            to={`/movie/${movieData?.nowPlaying?.response?.results[0]}`}
+            className="px-8 py-4 
+          bg-red-500 rounded-lg hover:bg-red-700 transition"
+          >
+            More View &rarr;
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
 }
 
 // *예외
