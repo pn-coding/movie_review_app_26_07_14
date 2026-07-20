@@ -21,7 +21,11 @@ const fetchMovie = async (endpoint) => {
   return { response };
 };
 
+//영화 리스트 요청
 export const getNowPlaying = () => fetchMovie("movie/now_playing");
 export const getPopular = () => fetchMovie("movie/popular");
 export const getTopRated = () => fetchMovie("movie/top_rated");
 export const getUpcoming = () => fetchMovie("movie/upcoming");
+
+//영화 상세 요청
+export const getDetail = (movie_id) => fetchMovie(`movie/${movie_id}`);

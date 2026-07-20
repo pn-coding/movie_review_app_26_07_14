@@ -8,7 +8,7 @@
 - [x] Header, footer, Loading, 404
 - [x] Helmet
 - [x] Main page ui
-- [ ] Detail page ui
-- [ ] Search page ui
+- [x] Detail page ui
 - [ ] Page Scroll Event
+- [ ] Search page ui
 - [ ] Deploy
