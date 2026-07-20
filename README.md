@@ -4,9 +4,11 @@
 - [x] 각 컴포넌트, 폴더 구성(IA)
 - [x] css 설정
 - [x] 웹폰트
-- [ ] api 설정
-- [ ] Header, footer, Loading, 404
-- [ ] 각 페이지 ui + 반응형 작업
+- [x] api 설정
+- [x] Header, footer, Loading, 404
 - [ ] Helmet
+- [x] Main page ui
+- [ ] Detail page ui
+- [ ] Search page ui
 - [ ] Page Scroll Event
 - [ ] Deploy
