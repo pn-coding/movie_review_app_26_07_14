@@ -9,6 +9,6 @@
 - [x] Helmet
 - [x] Main page ui
 - [x] Detail page ui
-- [ ] Page Scroll Event
-- [ ] Search page ui
+- [x] Page Scroll Event
+- [x] Search page ui
 - [ ] Deploy

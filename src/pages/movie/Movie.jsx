@@ -33,26 +33,23 @@ export default function Movie() {
     return <Loading />;
   }
 
-  // console.log(data);
-  const { response } = data;
-
   return (
     <div className="text-white bg-black min-h-screen">
-      <PageTitle title={response.title} />
+      <PageTitle title={data.title} />
 
       {/* HERO */}
       <div
         className="h-[50vh] md:h-[70vh] bg-cover bg-center relative "
         style={{
-          background: `url(${ORIGIAL_URL}${response?.backdrop_path}) no-repeat center / cover`,
+          background: `url(${ORIGIAL_URL}${data?.backdrop_path}) no-repeat center / cover`,
         }}
       >
         <div className="absolute inset-0 bg-black/70" />
 
         <div className="absolute bottom-6 md:bottom-10 left-4 md:left-10 z-10">
-          <h1 className="text-2xl md:text-5xl font-bold">{response.title}</h1>
+          <h1 className="text-2xl md:text-5xl font-bold">{data.title}</h1>
           <p className="text-sm md:text-lg opacity-80 mt-6 max-w-[700px]">
-            {response.overview}
+            {data.overview}
           </p>
         </div>
       </div>
@@ -61,22 +58,22 @@ export default function Movie() {
       <div className="max-w-[1200px] mx-auto px-4 md:px-10 py-10 md:py-16 flex flex-col md:flex-row gap-10">
         {/* POSTER */}
         <div className="w-full bg-gray-400 md:w-[300px] shrink-0">
-          <img src={W500_URL + response.poster_path} alt={response.title} />
+          <img src={W500_URL + data.poster_path} alt={data.title} />
         </div>
 
         {/* INFO */}
         <div className="flex-1 space-y-6">
           <div className="flex flex-wrap  gap-4 text-lg xl:text-xl xl:font-semibold opacity-80 ">
-            <span>⭐{Math.round(response.vote_average)}점</span>
+            <span>⭐{Math.round(data.vote_average)}점</span>
             <span>•</span>
             <span>100분</span>
             <span>•</span>
-            <span>{response.release_date}</span>
+            <span>{data.release_date}</span>
           </div>
 
           {/* 장르 */}
           <ul className="flex flex-wrap gap-2 mt-12 flex-col translate-x-[30px]">
-            {response.genres.map((genre) => (
+            {data.genres.map((genre) => (
               <li key={genre.id} className="list-disc">
                 {genre.name}
               </li>
@@ -85,7 +82,7 @@ export default function Movie() {
 
           {/* 줄거리 */}
           <p className="text-base md:text-md leading-relaxed opacity-80 mt-12">
-            {response.overview}
+            {data.overview}
           </p>
         </div>
       </div>
